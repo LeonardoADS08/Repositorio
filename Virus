@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    int N,i,j,k,n,len;
+    i = j = k = 0;
+    string corr,inc;
+    cin>>N;
+    if ( cin.peek() == '\n' ){
+        cin.ignore( 1, '\n' );
+        }
+    while(i<N) {
+        getline(cin,inc);
+        getline(cin,corr);
+        len = corr.length();
+        k = j = 0;
+        if (inc.length()==corr.length()){
+           while (j<len) {
+                if(corr[j]!=inc[j]){
+                    cout<<corr[j]<<endl;
+                }
+                j++;
+           }
+        }
+        else {
+            while(j<len) {
+                if (corr[j] == inc[k]) {
+                    k++;
+                }
+                else {
+                       cout<<corr[j];
+ 
+                }
+                j++;
+            }
+        }
+        i++;
+        cout<<endl;
+    }
+    return 0;
+}
+
