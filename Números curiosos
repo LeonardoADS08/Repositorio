@@ -1,0 +1,29 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+ 
+int main()
+{
+   int f,i,N,Aux,Ac,d;
+   cin>>N;
+   Ac=0;
+   Aux=N;
+   while (Aux>0){
+    d=Aux%10;
+    i=1;
+    f=1;
+    while (i<d){
+        f=f*(i+1);
+        i++;
+    }
+    Ac=Ac+f;
+    Aux=trunc(Aux/10);
+   }
+   if (Ac==N){
+    cout<<"Es curioso"<<endl;
+   }
+   else{
+    cout<<"No es curioso"<<endl;
+   }
+    return 0;
+}
