@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int bin[100];
+    int x, y, aux=0, i=0;
+    cin>>x;
+    while (x>0) {
+        y = x%2;
+        x /= 2;
+        if (y==0) {
+            bin[i] = 0;
+        }
+        else {
+            bin[i] = 1;
+        }
+        i++;
+    }
+    i--;
+    while (i) {
+        aux=aux*10+bin[i];
+        i--;
+    }
+    cout<<aux<<endl;
+    return 0;
+    }
