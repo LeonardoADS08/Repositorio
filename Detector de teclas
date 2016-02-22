@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
+ 
+#define KB_UP 72
+#define KB_DOWN 80
+#define KB_LEFT 75
+#define KB_RIGHT 77
+#define KB_ESCAPE 27
+ 
+using namespace std;
+int main()
+{
+   int KB_code=0;
+ 
+   while(KB_code != KB_ESCAPE )
+   {
+     if (kbhit())
+      {
+            KB_code = getch();
+            switch (KB_code)
+            {
+                case KB_LEFT:
+                    cout<<"IZQUIERDA"<<endl;
+                break;
+ 
+                case KB_RIGHT:
+                    cout<<"DERECHA"<<endl;
+                break;
+ 
+                case KB_UP:
+                    cout<<"ARRIBA"<<endl;
+                break;
+ 
+                case KB_DOWN:
+                    cout<<"HAVAJO"<<endl;
+                break;
+ 
+            }
+ 
+      }
+  }
+ 
+  return 0;
+}
