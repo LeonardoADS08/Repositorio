@@ -1,0 +1,15 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int main() {
+    int i = 1, diferencia = 0, comienzo, ultimo;
+    comienzo = clock();
+    while (diferencia != 1) {
+        i++;
+        ultimo = clock();
+        diferencia =  difftime(ultimo, comienzo);
+    }
+    cout<<i%10<<endl;
+    return 0;
+}
