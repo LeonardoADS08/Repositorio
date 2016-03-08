@@ -1,0 +1,111 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef unsigned long long ui64;
+int pot(int n, int e);
+int base(string &a);
+int hexTable(char &a);
+ui64 toDec(string a, int b);
+string toBin(ui64 num);
+int main()
+{
+	unsigned int t, b;
+	ui64 dec;
+	string n, a;
+	cin >> t;
+	for (int i = 1; i <= t; ++i)
+    {
+        cin >> n >> a;
+        cout << "Case " << i << ":" << endl;
+        b = base(a);
+        dec = toDec(n, b);
+        if (b == 10)
+        {
+            printf("%x", dec);
+            cout << " hex" << endl;
+            cout << toBin(dec) << " bin" << endl;
+        }
+        else if (b == 2)
+        {
+            cout << dec << " dec" << endl;
+            printf("%x", dec);
+            cout << " hex" << endl;
+        }
+        else
+        {
+            cout << dec << " dec" << endl;
+            cout << toBin(dec) << " bin" << endl;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+int pot(int n, int e)
+{
+    ui64 res = n;
+    if (e == 0) return 1;
+    for (int i = 1; i < e; ++i) res *= n;
+    return res;
+}
+
+int hexTable(char &a)
+{
+    switch (a)
+    {
+        case 'a': return 10;
+        case 'b': return 11;
+        case 'c': return 12;
+        case 'd': return 13;
+        case 'e': return 14;
+        case 'f': return 15;
+        case 'A': return 10;
+        case 'B': return 11;
+        case 'C': return 12;
+        case 'D': return 13;
+        case 'E': return 14;
+        case 'F': return 15;
+        default: return (a - 48);
+    }
+}
+
+int base(string &a)
+{
+    if (a == "bin") return 2;
+    if (a == "dec") return 10;
+    return 16;
+}
+
+ui64 toDec(string a, int b)
+{
+    ui64 num = 0;
+    if (b == 10)
+    {
+        for(int i = 0; i < a.length(); ++i)
+        {
+            num += a[i] - 48;
+            num *= 10;
+        }
+        num /= 10;
+        return num;
+    }
+    reverse(a.begin(), a.end());
+    if (b == 2)
+        for(int i = 0; i < a.length(); ++i) num += (a[i] - 48) * pot(2, i);
+    else
+    {
+        for(int i = 0; i < a.length(); ++i) num += (ui64)(hexTable(a[i])) * (ui64)pot(16, i);
+    }
+    return num;
+}
+
+string toBin(ui64 num)
+{
+    string bin;
+    while(num)
+    {
+        bin += num%2 + 48;
+        num /= 2;
+    }
+    reverse(bin.begin(), bin.end());
+    return bin;
+}
