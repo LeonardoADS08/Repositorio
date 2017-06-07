@@ -1,15 +1,19 @@
+#include <iostream>
+#include <cstring>
+#include <limits>
+using namespace std;
 bool verif_solo_numeros(char cad[])
 {
 	bool k = true;
 	int i = 0;
 	while(i < strlen(cad) && k==true)
 	{
-		if((cad[i] >= '0') && (cad[i] <= '9')) 
+		if((cad[i] >= '0') && (cad[i] <= '9'))
 			i++;
-		else 
+		else
 			k = false;
 	}
-	if (strlen(cad)==0) 
+	if (strlen(cad)==0)
 		k =  false;
 	return k;
 }
@@ -38,4 +42,11 @@ float leerDecimales()
         cin >> res;
     }
     return res;
+}
+
+int main()
+{
+    int a;
+    a = leerNumeros();
+    return 0;
 }
